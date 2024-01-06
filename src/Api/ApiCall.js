@@ -3,13 +3,9 @@ import axios from "axios";
 axios.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem("access-token-moviestore");
-    const { origin } = new URL(config.url);
-    const allowedOrigins = [process.env.REACT_APP_BASE_ENDPOINT];
-
-    if (allowedOrigins.includes(origin)) {
-      config.headers.authorization = token;
-    }
-
+    config.headers.Authorization = `Bearer ${token}`;
+    config.headers["Content-Type"] = "application/json";
+    config.withCredentials = true;
     return config;
   },
   function (error) {
@@ -32,4 +28,14 @@ export const fetchLogin = async (input) => {
     input
   );
   return data;
+};
+export const getMovies = async () => {
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BASE_ENDPOINT}/Movie/AllMovies`
+    );
+    return data;
+  } catch (error) {
+    console.log(error, "error");
+  }
 };

@@ -27,10 +27,10 @@ export const Register = () => {
   };
   const [isModalOpen, setModalOpen] = useState(false);
   const onSubmit = async (data) => {
+    console.log("🚀 ~ file: index.jsx:30 ~ onSubmit ~ data:", data);
     try {
-      data.phoneNumber = String(data.phoneNumber);
+      data.phoneNumber = `${data.phoneNumber}`;
       const registerResponse = await fetchRegister(data);
-      console.log("register", registerResponse);
       registerResponse.isSuccess && setModalOpen(true);
     } catch (error) {
       console.log(error);
@@ -41,47 +41,47 @@ export const Register = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" flex flex-col items-center pt-5  gap-8"
+        className=" flex flex-col items-center pt-5  gap-4"
       >
-        <h3 className="font-bold text-4xl mb-5 text-white">Sign Up</h3>
+        <h3 className="font-bold text-4xl text-white">Sign Up</h3>
 
         <Input
           register={register}
           labelFor="firstName"
           type="text"
-          labelText="First Name *"
-          placeholder="First Name *"
+          labelText="First Name"
+          placeholder="John *"
           errorMessage={errors.firstName?.message}
         />
         <Input
           register={register}
           labelFor="lastName"
           type="text"
-          labelText="Last Name *"
-          placeholder="Last Name *"
+          labelText="Last Name"
+          placeholder="Doe *"
           errorMessage={errors.lastName?.message}
         />
         <Input
           register={register}
           labelFor="email"
           type="email"
-          labelText="Email *"
-          placeholder="Email *"
+          labelText="Email"
+          placeholder="example@example.com *"
           errorMessage={errors.email?.message}
         />
         <Input
           register={register}
           labelFor="userName"
           type="text"
-          labelText="User Name *"
-          placeholder="User Name *"
+          labelText="User Name"
+          placeholder="johnny *"
           errorMessage={errors.userName?.message}
         />
         <Input
           register={register}
           labelFor="password"
           type="password"
-          labelText="Password *"
+          labelText="Password"
           placeholder="Password *"
           errorMessage={errors.password?.message}
         />
@@ -89,7 +89,7 @@ export const Register = () => {
           register={register}
           labelFor="passwordConfirm"
           type="password"
-          labelText="Confirm Password*"
+          labelText="Confirm Password"
           placeholder="Password *"
           errorMessage={errors.passwordConfirm?.message}
         />
@@ -97,11 +97,11 @@ export const Register = () => {
           register={register}
           labelFor="phoneNumber"
           type="tel"
-          labelText="Phone Number *"
+          labelText="Phone Number"
           placeholder="Phone Number *"
           errorMessage={errors.phoneNumber?.message}
         />
-        <div className="flex w-[360px] justify-end w-full">
+        <div className="flex w-[360px] justify-center w-full mt-4">
           <Button backgroundColor="bg-secondary">Gönder</Button>
         </div>
       </form>
