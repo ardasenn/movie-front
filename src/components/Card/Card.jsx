@@ -17,12 +17,12 @@ export const Card = ({ children, data }) => {
             className="w-[30px] h-[20px]"
             alt="imdb"
           />
-          <p className="ml-3">{data?.imdb ? data.imdb : "7.6"}/100</p>
+          <p className="ml-3">{data?.imdb ? data.imdb : "6.6"}/100</p>
         </div>
         <p className="font-bold">{data?.price ? data.price : "100"} TL</p>
       </div>
       <p className="mt-1 text-primary">
-        {data?.genres.map((gnr) => gnr.name)}Action,Adeventure,Thriller
+        {data?.genres.map((gnr) => gnr.name)} Action,Adeventure,Thriller
       </p>
       {children}
     </div>

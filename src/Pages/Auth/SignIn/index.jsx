@@ -22,6 +22,10 @@ export const SignIn = () => {
         "access-token-moviestore",
         registerResponse.data.accessToken
       );
+      localStorage.setItem(
+        "refresh-token-moviestore",
+        registerResponse.data.refreshToken
+      );
       navigate("/");
     }
   };
