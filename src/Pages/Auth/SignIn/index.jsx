@@ -54,7 +54,11 @@ export const SignIn = () => {
           labelText="Password"
           placeholder="Password *"
         />
+
         <div className="w-[360px] flex justify-between items-center">
+          <div className="mt-2">
+            <Button backgroundColor="bg-secondary">Sign In</Button>
+          </div>
           <p className="text-sm font-light text-gray-500 dark:text-gray-400">
             Don’t have an account yet?{" "}
             <Link to="/register">
@@ -63,9 +67,6 @@ export const SignIn = () => {
               </button>
             </Link>
           </p>
-          <div className="mt-2">
-            <Button backgroundColor="bg-secondary">Sign In</Button>
-          </div>
         </div>
       </form>
     </>

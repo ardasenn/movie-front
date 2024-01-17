@@ -1,37 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { customerSchema } from "./validation";
 import { fetchRegister } from "../../../Api/ApiCall";
-import Modal from "react-modal";
-import { useNavigate } from "react-router-dom";
 import { Input } from "../../../components/Input";
 import { Button } from "../../../components/Button";
+import { useModal } from "../../../contexts/Modalcontext";
 
 export const Register = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(customerSchema) });
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
-  const [isModalOpen, setModalOpen] = useState(false);
+  const { showModal } = useModal();
+
   const onSubmit = async (data) => {
-    console.log("🚀 ~ file: index.jsx:30 ~ onSubmit ~ data:", data);
     try {
       data.phoneNumber = `${data.phoneNumber}`;
       const registerResponse = await fetchRegister(data);
-      registerResponse.isSuccess && setModalOpen(true);
+      registerResponse.isSuccess &&
+        showModal(registerResponse.message, "/signin");
     } catch (error) {
       console.log(error);
     }
@@ -105,26 +94,6 @@ export const Register = () => {
           <Button backgroundColor="bg-secondary">Gönder</Button>
         </div>
       </form>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setModalOpen(false)}
-        contentLabel="Example Modal"
-        style={customStyles}
-      >
-        <div className="relative h-16">
-          <h2 className="font-bold">Kayıt başarıyla gerçekleşti</h2>
-          <button
-            className=" text-cyan-50 font-medium hover:text-black  bg-green-500 w-28 mt-2 absolute right-0  h-8 rounded-full"
-            onClick={() => {
-              setModalOpen(false);
-              navigate("/signin");
-            }}
-          >
-            Ekranı Kapat
-          </button>
-        </div>
-      </Modal>
     </>
   );
 };

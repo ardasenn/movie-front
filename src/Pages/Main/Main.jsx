@@ -12,16 +12,8 @@ export const Main = () => {
     getData();
   }, []);
   return (
-    <div className="flex justify-evenly flex-wrap gap-2">
+    <div className="mx-11 flex  justify-start flex-wrap gap-11">
       {movies && movies.map((mov) => <Card key={mov.id} data={mov} />)}
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
       <Card />
     </div>
   );

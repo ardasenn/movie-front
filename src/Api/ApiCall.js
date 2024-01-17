@@ -41,3 +41,11 @@ export const getMovies = async () => {
     console.log(error, "error");
   }
 };
+export const giveOrder = async (data) => {
+  const response = await axios.post(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/Customer/GiveOrder`,
+    data
+  );
+  console.log("🚀 ~ giveOrder ~ response:", response);
+  return response.data;
+};

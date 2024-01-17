@@ -5,12 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { BasketProvider } from "./contexts/BasketContext";
+import { ModalProvider } from "./contexts/Modalcontext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <ModalProvider>
+      <AuthProvider>
+        <BasketProvider>
+          <App />
+        </BasketProvider>
+      </AuthProvider>
+    </ModalProvider>
   </BrowserRouter>
 );
 
