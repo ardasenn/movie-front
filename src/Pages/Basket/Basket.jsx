@@ -20,7 +20,6 @@ export const Basket = () => {
       movieIds: [...items.map((itm) => `${itm.id}`)],
     };
     const response = await giveOrder(order);
-    console.log("🚀 ~ handleGiveOrder ~ response:", response);
     if (response.isSuccess) {
       emptyBasket();
       showModal(response.message, "/");

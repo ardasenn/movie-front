@@ -7,6 +7,7 @@ import { SignIn } from "./Pages/Auth/SignIn";
 import { Main } from "./Pages/Main/Main";
 import { Basket } from "./Pages/Basket/Basket";
 import { CustomModal } from "./components/Modal/CustomModal";
+import { Orders } from "./Pages/Orders/Orders";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
       <CustomModal />
     </div>

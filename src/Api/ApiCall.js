@@ -46,6 +46,11 @@ export const giveOrder = async (data) => {
     `${process.env.REACT_APP_BASE_ENDPOINT}/Customer/GiveOrder`,
     data
   );
-  console.log("🚀 ~ giveOrder ~ response:", response);
+  return response.data;
+};
+export const myOrders = async (id) => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/Customer/MyOrders/${id}`
+  );
   return response.data;
 };
