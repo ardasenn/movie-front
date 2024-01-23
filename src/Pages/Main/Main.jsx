@@ -8,13 +8,13 @@ export const Main = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await getMovies();
-      setMovies(data.data);
+      setMovies(data?.data);
     };
     getData();
   }, []);
   const handleClick = (id) => navigate(`/movie/${id}`);
   return (
-    <div className="mx-11 my-10 flex  justify-start flex-wrap gap-11">
+    <div className="mx-11 mt-10 flex  justify-start flex-wrap gap-11">
       {movies &&
         movies.map((mov) => (
           <Card
@@ -25,7 +25,6 @@ export const Main = () => {
             }}
           />
         ))}
-      <Card />
     </div>
   );
 };

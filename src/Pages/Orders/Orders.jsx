@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { myOrders } from "../../Api/ApiCall";
-
+import { useAuth } from "../../contexts/AuthContext";
+import dateFormat, { masks } from "dateformat";
 export const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
-
+  const { loggedIn } = useAuth();
   useEffect(() => {
     const getData = async () => {
-      const response = await myOrders("3f4fd215-e301-4b31-9246-19b0834b60ac");
+      const response = await myOrders(loggedIn.id);
       setOrders(response.data);
     };
     getData();
@@ -34,10 +35,10 @@ export const Orders = () => {
                 <div className="flex justify-between px-10 cursor-pointer mb-2">
                   <div>{ord.movieList.length} Movies bought</div>
                   <div>
-                    Amount
-                    {ord.movieList.reduce((acc, cur) => acc + cur.price, 0)}
+                    Total Amount :{" "}
+                    {ord.movieList.reduce((acc, cur) => acc + cur.price, 0)} TL
                   </div>
-                  <div> Tarih</div>
+                  <div> {dateFormat(ord.creationDate, "paddedShortDate")}</div>
                 </div>
                 {ord.movieList.map((mov) => (
                   <div

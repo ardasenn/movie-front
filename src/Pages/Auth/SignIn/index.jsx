@@ -18,14 +18,6 @@ export const SignIn = () => {
       setBackendMessage(registerResponse.message);
     } else {
       login(registerResponse.data);
-      localStorage.setItem(
-        "access-token-moviestore",
-        registerResponse.data.accessToken
-      );
-      localStorage.setItem(
-        "refresh-token-moviestore",
-        registerResponse.data.refreshToken
-      );
       navigate("/");
     }
   };

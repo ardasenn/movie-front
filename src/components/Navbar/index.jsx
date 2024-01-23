@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../Button";
 import { FaShoppingBasket } from "react-icons/fa";
 import { useBasket } from "../../contexts/BasketContext";
 
 export const Navbar = () => {
-  const { loggedIn, setLoggedIn } = useAuth();
+  const { loggedIn, setLoggedIn, logout } = useAuth();
   const { items } = useBasket();
+  const navigate = useNavigate();
   return (
     <div
       className="navbar-container w-full flex  justify-between
@@ -35,14 +36,20 @@ export const Navbar = () => {
               <FaShoppingBasket size={25} className="mr-2" />
             </Link>
             <Link to="/orders" className=" hover:text-zinc-500 mr-2">
-              Siparişlerim
+              My Orders
+            </Link>
+            <Link to="/user" className=" hover:text-zinc-500 mr-2">
+              Details
             </Link>
             <Link>
               <Button
-                onClick={() => setLoggedIn(null)}
+                onClick={async () => {
+                  await logout();
+                  navigate("/signin");
+                }}
                 backgroundColor="bg-secondary"
               >
-                Çıkış yap
+                Logout
               </Button>
             </Link>
           </>

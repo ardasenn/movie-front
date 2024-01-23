@@ -7,9 +7,11 @@ import dateFormat, { masks } from "dateformat";
 import { Button } from "../../components/Button/index";
 import { addComment } from "../../Api/ApiCall";
 import { useModal } from "../../contexts/Modalcontext";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const Movie = () => {
   const [movie, setMovie] = useState(false);
+  const { loggedIn } = useAuth();
   const [comment, setComment] = useState("");
   const [rate, setRate] = useState(1);
   const { id } = useParams();
@@ -17,7 +19,6 @@ export const Movie = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await getMovie(id);
-      console.log("🚀 ~ getData ~ response:", response.data);
       setMovie(response.data);
     };
     getData();
@@ -27,7 +28,7 @@ export const Movie = () => {
       movieId: id,
       text: comment,
       rate,
-      customerId: "3f4fd215-e301-4b31-9246-19b0834b60ac",
+      customerId: loggedIn.id,
     };
     const response = await addComment(data);
     if (response.isSuccess) {

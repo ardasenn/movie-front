@@ -11,7 +11,6 @@ export const Basket = () => {
   const { loggedIn } = useAuth();
   const { showModal } = useModal();
   const { items, emptyBasket } = useBasket();
-
   const totalAmount = items.reduce((acc, cur) => acc + cur.price, 0);
 
   const handleGiveOrder = async () => {
@@ -24,6 +23,7 @@ export const Basket = () => {
       emptyBasket();
       showModal(response.message, "/");
     }
+    showModal(response.message, "/basket");
   };
   return (
     <>

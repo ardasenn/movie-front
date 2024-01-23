@@ -11,9 +11,14 @@ const AuthProvider = ({ children }) => {
 
   const login = (data) => {
     setLoggedIn(data);
+    localStorage.setItem("access-token-moviestore", data.accessToken);
+    localStorage.setItem("refresh-token-moviestore", data.refreshToken);
   };
-
-  const values = { loggedIn, login, setLoggedIn };
+  const logout = () => {
+    setLoggedIn(null);
+    localStorage.clear();
+  };
+  const values = { loggedIn, login, setLoggedIn, logout };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 

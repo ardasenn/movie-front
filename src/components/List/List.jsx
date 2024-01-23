@@ -2,11 +2,16 @@ import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { useBasket } from "../../contexts/BasketContext";
+import { useNavigate } from "react-router-dom";
 export const List = () => {
   const { items, removeFromBasket, emptyBasket } = useBasket();
+  const navigate = useNavigate();
 
   const handleRemoveClick = (id) => {
     removeFromBasket(id);
+  };
+  const handleClick = (id) => {
+    navigate(`/movie/${id}`);
   };
   return (
     <>
@@ -17,7 +22,10 @@ export const List = () => {
               key={itm.id}
               className="flex justify-between items-center mt-4  text-white font-bold "
             >
-              <div className=" flex justify-between items-center w-[450px] mw-[450px] overflow-auto">
+              <div
+                className=" flex justify-between items-center w-[450px] mw-[450px] overflow-auto"
+                onClick={() => handleClick(itm.id)}
+              >
                 <img src="/doga.jpg" className="w-[110px] h-[80px]" alt="" />
                 <div className=" overflow-auto h-[80px] w-[200px] flex items-center text-xl">
                   {itm.name}

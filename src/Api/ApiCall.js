@@ -80,3 +80,9 @@ export const addComment = async (data) => {
   );
   return response.data;
 };
+export const getUserDetail = async (id) => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/Customer/Details/${id}`
+  );
+  return response.data;
+};

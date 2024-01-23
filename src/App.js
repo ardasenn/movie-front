@@ -9,6 +9,7 @@ import { Basket } from "./Pages/Basket/Basket";
 import { CustomModal } from "./components/Modal/CustomModal";
 import { Orders } from "./Pages/Orders/Orders";
 import { Movie } from "./Pages/Movie/Movie";
+import { User } from "./Pages/User/User";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/user" element={<User />} />
         <Route path="/movie/:id" element={<Movie />} />
       </Routes>
       <CustomModal />

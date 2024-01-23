@@ -39,7 +39,7 @@ export const Card = ({ children, data, onClick }) => {
         <p className="font-bold">{data?.price ? data.price : "100"} TL</p>
       </div>
       <p className="mt-1 text-primary">
-        {data?.genres.map((gnr) => `${gnr.name} `)} Action,Adeventure,Thriller
+        {data?.genres.map((gnr) => `${gnr.name} `)}
       </p>
       {children}
     </div>
