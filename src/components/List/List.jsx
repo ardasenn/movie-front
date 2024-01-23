@@ -10,7 +10,7 @@ export const List = () => {
   };
   return (
     <>
-      <div className=" bg-secondary w-[900px] h-[600px] overflow-auto p-2">
+      <div className=" bg-secondary w-[900px] h-[600px] rounded-lg overflow-auto p-2">
         {items.map((itm) => {
           return (
             <div

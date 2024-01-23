@@ -4,7 +4,10 @@ import { useLocalStorageState } from "../Hooks/LocalStorage";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useLocalStorageState("moviestore-auth", []);
+  const [loggedIn, setLoggedIn] = useLocalStorageState(
+    "moviestore-auth",
+    false
+  );
 
   const login = (data) => {
     setLoggedIn(data);

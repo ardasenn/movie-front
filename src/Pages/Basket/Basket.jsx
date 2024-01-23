@@ -36,7 +36,7 @@ export const Basket = () => {
           </h1>
         )}
 
-        <div className="w-[300px] h-[200px] flex  flex-col justify-between text-white font-bold bg-primary p-2">
+        <div className="w-[300px] h-[200px] flex  flex-col justify-between rounded-lg text-white font-bold bg-primary p-2">
           <h1 className="text-center text-3xl">Sipariş Özeti</h1>
           <div>
             <div className="mb-2">{items.length} adet Film</div>

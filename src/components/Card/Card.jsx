@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoAddCircle } from "react-icons/io5";
 import { useBasket } from "../../contexts/BasketContext";
 
-export const Card = ({ children, data }) => {
+export const Card = ({ children, data, onClick }) => {
   const { items, addToBasket, removeFromBasket } = useBasket();
   const [isOnBasket, setIsOnBasket] = useState(false);
   const handleClick = () => {
@@ -11,13 +11,18 @@ export const Card = ({ children, data }) => {
   };
   return (
     <div className="h-[440px] w-[250px] relative hover:scale-[1.07] ease-in duration-300">
-      <img src="/doga.jpg" className="w-[250px] h-[320px]" alt="" />
+      <img
+        src="/doga.jpg"
+        className="w-[250px] h-[320px]"
+        alt=""
+        onClick={onClick}
+      />
       <p className="text-xl text-white  mt-2  font-bold  overflow-auto max-h-7">
         {data?.name ? data.name : "No Time To Die"}
       </p>
       <IoAddCircle
         onClick={handleClick}
-        className="absolute right-0 top-0 text-white w-6 h-6"
+        className="absolute right-0 top-0 hover:scale-150 text-white w-6 h-6"
       />
       <p className="text-primary text-xs">
         {data?.salesQuantity ? data.salesQuantity : "100"} quantity sold
