@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { customerSchema } from "./validation";
-import { fetchRegister } from "../../../api/ApiCall";
+import { fetchRegister } from "../../../Api/ApiCall";
 import { Input } from "../../../components/Input/Input";
 import { Button } from "../../../components/Button/Button";
 import { useModal } from "../../../contexts/ModalContext";

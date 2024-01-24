@@ -4,7 +4,7 @@ import { useBasket } from "../../contexts/BasketContext";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { Button } from "../../components/Button/Button";
 import { useAuth } from "../../contexts/AuthContext";
-import { giveOrder } from "../../api/ApiCall";
+import { giveOrder } from "../../Api/ApiCall";
 import { useModal } from "../../contexts/ModalContext";
 
 export const Basket = () => {

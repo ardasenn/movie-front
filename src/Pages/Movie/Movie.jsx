@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMovie } from "../../api/ApiCall";
+import { getMovie } from "../../Api/ApiCall";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { FaImdb } from "react-icons/fa";
 import dateFormat, { masks } from "dateformat";
 import { Button } from "../../components/Button/Button";
-import { addComment } from "../../api/ApiCall";
+import { addComment } from "../../Api/ApiCall";
 import { useModal } from "../../contexts/ModalContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { storage } from "../../firebase/firebase";

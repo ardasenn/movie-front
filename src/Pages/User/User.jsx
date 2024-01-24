@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserDetail } from "../../api/ApiCall";
+import { getUserDetail } from "../../Api/ApiCall";
 import { useAuth } from "../../contexts/AuthContext";
 import dateFormat, { masks } from "dateformat";
 export const User = () => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { myOrders } from "../../api/ApiCall";
+import { myOrders } from "../../Api/ApiCall";
 import { useAuth } from "../../contexts/AuthContext";
 import dateFormat, { masks } from "dateformat";
 export const Orders = () => {
