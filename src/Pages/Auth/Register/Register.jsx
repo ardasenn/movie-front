@@ -2,10 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { customerSchema } from "./validation";
-import { fetchRegister } from "../../../Api/ApiCall";
-import { Input } from "../../../components/Input";
-import { Button } from "../../../components/Button";
-import { useModal } from "../../../contexts/Modalcontext";
+import { fetchRegister } from "../../../api/ApiCall";
+import { Input } from "../../../components/Input/Input";
+import { Button } from "../../../components/Button/Button";
+import { useModal } from "../../../contexts/ModalContext";
 
 export const Register = () => {
   const {

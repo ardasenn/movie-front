@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { fetchLogin } from "../../../Api/ApiCall";
+import { fetchLogin } from "../../../api/ApiCall";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthContext";
-import { Input } from "../../../components/Input";
-import { Button } from "../../../components/Button";
+import { Input } from "../../../components/Input/Input";
+import { Button } from "../../../components/Button/Button";
 
 export const SignIn = () => {
   const { register, handleSubmit } = useForm();

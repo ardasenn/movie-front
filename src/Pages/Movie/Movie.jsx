@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMovie } from "../../Api/ApiCall";
+import { getMovie } from "../../api/ApiCall";
 import { FaTurkishLiraSign } from "react-icons/fa6";
 import { FaImdb } from "react-icons/fa";
 import dateFormat, { masks } from "dateformat";
-import { Button } from "../../components/Button/index";
-import { addComment } from "../../Api/ApiCall";
-import { useModal } from "../../contexts/Modalcontext";
+import { Button } from "../../components/Button/Button";
+import { addComment } from "../../api/ApiCall";
+import { useModal } from "../../contexts/ModalContext";
 import { useAuth } from "../../contexts/AuthContext";
+import { storage } from "../../firebase/firebase";
+import { ref, getDownloadURL } from "firebase/storage";
 
 export const Movie = () => {
   const [movie, setMovie] = useState(false);
@@ -16,6 +18,15 @@ export const Movie = () => {
   const [rate, setRate] = useState(1);
   const { id } = useParams();
   const { showModal } = useModal();
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    const imageRef = ref(storage, `images/${id}.jpg`);
+    const getUrl = async () => {
+      const data = await getDownloadURL(imageRef);
+      setUrl(data);
+    };
+    getUrl();
+  }, [movie]);
   useEffect(() => {
     const getData = async () => {
       const response = await getMovie(id);
@@ -44,11 +55,7 @@ export const Movie = () => {
   return (
     <div className="flex justify-evenly items-center mt-6">
       <div className="w-[1200px] h-[700px] border-dotted border-2 flex text-white rounded-lg border-secondary">
-        <img
-          src="https://picsum.photos/600/700"
-          className="w-1/2 h-full"
-          alt=""
-        />
+        <img src={url} className="w-1/2 h-full" alt="" />
         <div className="w-1/2 h-full p-2">
           <div>
             <h1 className="text-5xl font-bold text-center">{movie.name}</h1>
@@ -91,7 +98,7 @@ export const Movie = () => {
           </div>
           <div className="mt-2 bg-secondary rounded-lg">
             <h3 className="text-3xl text-black"> Comments</h3>
-            <div className="ml-4 overflow-auto max-h-[360px]">
+            <div className="ml-4 overflow-auto max-h-[330px]">
               {movie &&
                 movie.comments.map((cm) => {
                   return (

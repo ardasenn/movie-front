@@ -26,7 +26,7 @@ export const List = () => {
                 className=" flex justify-between items-center w-[450px] mw-[450px] overflow-auto"
                 onClick={() => handleClick(itm.id)}
               >
-                <img src="/doga.jpg" className="w-[110px] h-[80px]" alt="" />
+                <img src={itm.url} className="w-[110px] h-[80px]" alt="" />
                 <div className=" overflow-auto h-[80px] w-[200px] flex items-center text-xl">
                   {itm.name}
                 </div>

@@ -2,10 +2,10 @@ import React from "react";
 import { List } from "../../components/List/List";
 import { useBasket } from "../../contexts/BasketContext";
 import { FaTurkishLiraSign } from "react-icons/fa6";
-import { Button } from "../../components/Button/index";
+import { Button } from "../../components/Button/Button";
 import { useAuth } from "../../contexts/AuthContext";
-import { giveOrder } from "../../Api/ApiCall";
-import { useModal } from "../../contexts/Modalcontext";
+import { giveOrder } from "../../api/ApiCall";
+import { useModal } from "../../contexts/ModalContext";
 
 export const Basket = () => {
   const { loggedIn } = useAuth();
@@ -14,6 +14,7 @@ export const Basket = () => {
   const totalAmount = items.reduce((acc, cur) => acc + cur.price, 0);
 
   const handleGiveOrder = async () => {
+    if (items.length <= 0) return;
     const order = {
       customerId: loggedIn.id,
       movieIds: [...items.map((itm) => `${itm.id}`)],
@@ -37,17 +38,17 @@ export const Basket = () => {
         )}
 
         <div className="w-[300px] h-[200px] flex  flex-col justify-between rounded-lg text-white font-bold bg-primary p-2">
-          <h1 className="text-center text-3xl">Sipariş Özeti</h1>
+          <h1 className="text-center text-3xl">Order Summary</h1>
           <div>
-            <div className="mb-2">{items.length} adet Film</div>
+            <div className="mb-2">{items.length} Movies</div>
             <hr />
           </div>
           <div className="flex items-center justify-around justify-end">
             <div className="flex items-center">
-              Toplam : {totalAmount} <FaTurkishLiraSign />
+              Total : {totalAmount} <FaTurkishLiraSign />
             </div>
             <Button backgroundColor="bg-secondary" onClick={handleGiveOrder}>
-              Tamamla
+              Complete
             </Button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "../../components/Card/Card";
-import { getMovies } from "../../Api/ApiCall";
+import { getMovies } from "../../api/ApiCall";
 import { useNavigate } from "react-router-dom";
 export const Main = () => {
   const [movies, setMovies] = useState(null);

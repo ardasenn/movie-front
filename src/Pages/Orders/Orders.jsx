@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { myOrders } from "../../Api/ApiCall";
+import { myOrders } from "../../api/ApiCall";
 import { useAuth } from "../../contexts/AuthContext";
 import dateFormat, { masks } from "dateformat";
 export const Orders = () => {
@@ -24,6 +24,11 @@ export const Orders = () => {
         Orders
       </h1>
       <div className="flex justify-center ">
+        {orders.length <= 0 && (
+          <h1 className="mt-10 text-center text-white text-3xl">
+            Your Orders is empty
+          </h1>
+        )}
         {orders.length > 0 && (
           <div className="border-solid border-2 mt-4 border-secondary rounded-lg font-extrabold text-2xl text-white w-[900px] h-[600px] overflow-auto">
             {orders.map((ord) => (

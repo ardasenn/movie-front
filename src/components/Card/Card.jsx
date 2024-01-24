@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoAddCircle } from "react-icons/io5";
 import { useBasket } from "../../contexts/BasketContext";
+import { storage } from "../../firebase/firebase";
+import { ref, getDownloadURL } from "firebase/storage";
 
 export const Card = ({ children, data, onClick }) => {
   const { items, addToBasket, removeFromBasket } = useBasket();
   const [isOnBasket, setIsOnBasket] = useState(false);
+  const [url, setUrl] = useState(null);
   const handleClick = () => {
-    isOnBasket ? removeFromBasket(data.id) : addToBasket(data);
+    isOnBasket ? removeFromBasket(data.id) : addToBasket({ url, ...data });
     setIsOnBasket(!isOnBasket);
   };
+  const imageRef = ref(storage, `images/${data.id}.jpg`);
+  useEffect(() => {
+    const getUrl = async () => {
+      const data = await getDownloadURL(imageRef);
+      setUrl(data);
+    };
+    getUrl();
+  }, []);
   return (
     <div className="h-[440px] w-[250px] relative hover:scale-[1.07] ease-in duration-300">
-      <img
-        src="/doga.jpg"
-        className="w-[250px] h-[320px]"
-        alt=""
-        onClick={onClick}
-      />
+      <img src={url} className="w-[250px] h-[320px]" alt="" onClick={onClick} />
       <p className="text-xl text-white  mt-2  font-bold  overflow-auto max-h-7">
         {data?.name ? data.name : "No Time To Die"}
       </p>

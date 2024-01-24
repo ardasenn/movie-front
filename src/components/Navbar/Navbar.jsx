@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { Button } from "../Button";
+import { Button } from "../Button/Button";
 import { FaShoppingBasket } from "react-icons/fa";
 import { useBasket } from "../../contexts/BasketContext";
 

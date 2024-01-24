@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserDetail } from "../../Api/ApiCall";
+import { getUserDetail } from "../../api/ApiCall";
 import { useAuth } from "../../contexts/AuthContext";
 import dateFormat, { masks } from "dateformat";
 export const User = () => {
@@ -21,7 +21,7 @@ export const User = () => {
             <p>First Name :</p>
             <p className=" text-myBlue font-semibold">{user.firstName}</p>
           </div>
-          <div className="flex gap-4 w-[300px] text-left">
+          <div className="flex gap-4 w-[350px] text-left">
             <p>Last Name :</p>
             <p className=" text-myBlue font-semibold">{user.lastName}</p>
           </div>
@@ -31,7 +31,7 @@ export const User = () => {
             <p>Email :</p>
             <p className=" text-myBlue font-semibold">{user.email}</p>
           </div>
-          <div className="flex gap-4 w-[300px] text-left">
+          <div className="flex gap-4 w-[350px] text-left">
             <p>Phone Number :</p>
             <p className=" text-myBlue font-semibold">
               {user.phoneNumber || "000"}
@@ -43,7 +43,7 @@ export const User = () => {
             <p>User Name :</p>
             <p className=" text-myBlue font-semibold">{user.userName}</p>
           </div>
-          <div className="flex gap-4 w-[300px] text-left">
+          <div className="flex gap-4 w-[350px] text-left">
             <p>Register Date :</p>
             <p className=" text-myBlue font-semibold">
               {dateFormat(user.creationDate, "paddedShortDate")}
@@ -55,7 +55,7 @@ export const User = () => {
             <p>Balance :</p>
             <p className=" text-myBlue font-semibold">{user.balance}</p>
           </div>
-          <div className="flex gap-4 w-[300px] text-left">
+          <div className="flex gap-4 w-[350px] text-left">
             <p>Orders Count :</p>
             <p className=" text-myBlue font-semibold">{user.ordersCount}</p>
           </div>
