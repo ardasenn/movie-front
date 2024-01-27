@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
-import { useModal } from "../../contexts/ModalContext";
+import { useModal } from "../../contexts/CustomModalContext";
 
 export const CustomModal = () => {
   const navigate = useNavigate();

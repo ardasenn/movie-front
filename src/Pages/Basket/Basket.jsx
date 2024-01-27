@@ -5,7 +5,7 @@ import { FaTurkishLiraSign } from "react-icons/fa6";
 import { Button } from "../../components/Button/Button";
 import { useAuth } from "../../contexts/AuthContext";
 import { giveOrder } from "../../Api/ApiCall";
-import { useModal } from "../../contexts/ModalContext";
+import { useModal } from "../../contexts/CustomModalContext";
 
 export const Basket = () => {
   const { loggedIn } = useAuth();

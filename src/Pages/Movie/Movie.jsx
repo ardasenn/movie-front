@@ -6,7 +6,7 @@ import { FaImdb } from "react-icons/fa";
 import dateFormat, { masks } from "dateformat";
 import { Button } from "../../components/Button/Button";
 import { addComment } from "../../Api/ApiCall";
-import { useModal } from "../../contexts/ModalContext";
+import { useModal } from "../../contexts/CustomModalContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { storage } from "../../firebase/firebase";
 import { ref, getDownloadURL } from "firebase/storage";

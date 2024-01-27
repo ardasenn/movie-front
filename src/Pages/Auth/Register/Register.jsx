@@ -5,7 +5,7 @@ import { customerSchema } from "./validation";
 import { fetchRegister } from "../../../Api/ApiCall";
 import { Input } from "../../../components/Input/Input";
 import { Button } from "../../../components/Button/Button";
-import { useModal } from "../../../contexts/ModalContext";
+import { useModal } from "../../../contexts/CustomModalContext";
 
 export const Register = () => {
   const {
