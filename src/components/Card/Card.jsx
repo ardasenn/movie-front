@@ -23,7 +23,7 @@ export const Card = ({ children, data, onClick }) => {
   return (
     <div className="h-[440px] w-[250px] relative hover:scale-[1.07] ease-in duration-300">
       <img src={url} className="w-[250px] h-[320px]" alt="" onClick={onClick} />
-      <p className="text-xl text-white  mt-2  font-bold  overflow-auto max-h-7">
+      <p className="text-xl text-white  mt-2  font-bold  overflow-hidden max-h-7">
         {data?.name ? data.name : "No Time To Die"}
       </p>
       <IoAddCircle
