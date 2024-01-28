@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Movie Store App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- In this application, users can register on the site and purchase movies. You can check this project on live:
+- Link : https://movie-front-plum.vercel.app
+- Backend repository link : https://github.com/ardasenn/MovieStore
 
-## Available Scripts
+## Why did I develop this project?
 
-In the project directory, you can run:
+We all work within certain structures at our workplaces. I want this project to be a personal endeavor where I can develop and apply new knowledge.
 
-### `npm start`
+### Kullanılacak Yaklaşım ve Teknolojiler
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Onion Architecture
+- PostgreSQL (Cloud) for the database, using EntityFrameworkCore as the ORM
+- Backend in .NetCore 6
+- Frontend development with React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Goals and Practices Targeted in the Project
 
-### `npm test`
+- Implementation and control of user authentication processes using Jwt token infrastructure
+- Learning how to write custom middleware
+- Frontend development with React to gain experience
+- Learning Onion Architecture through this project. This is my first project using this design pattern!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### If you want to run this project from your localhost please check steps below
 
-### `npm run build`
+- You need to download modules with this code : npm install
+- After than you have to create your .env file like example below :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+REACT_APP_BASE_ENDPOINT=https://your-api-endpoint.com/api
+REACT_APP_FIREBASE_API_KEY=your-firebase-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+REACT_APP_FIREBASE_DATABASE_URL=https://your-firebase-database-url.com
+REACT_APP_FIREBASE_PROJECT_ID=your-firebase-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-firebase-app-id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your-firebase-measurement-id
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Also you need to change connection string from backend.
